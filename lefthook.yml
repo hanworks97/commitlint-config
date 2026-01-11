@@ -1,0 +1,12 @@
+# https://lefthook.dev/configuration/
+
+pre-commit:
+  commands:
+    eslint:
+      glob: '*'
+      run: pnpm eslint --cache --fix {staged_files}
+
+commit-msg:
+  commands:
+    commitlint:
+      run: pnpm exec commitlint --edit $1

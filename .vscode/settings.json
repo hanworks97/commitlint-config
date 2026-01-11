@@ -42,6 +42,7 @@
     "*.ts": "$(capture).test.ts, $(capture).test.tsx",
     "*.tsx": "$(capture).test.ts, $(capture).test.tsx",
     "*.env": "$(capture).env.*",
+    "eslint.config.js": ".eslintcache",
     "package.json": "pnpm-lock.yaml,pnpm-workspace.yaml,yarn.lock,.npmrc"
   }
 }

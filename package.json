@@ -1,7 +1,7 @@
 {
   "name": "@stackou/commitlint-config",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "packageManager": "pnpm@10.15.0",
   "description": "Hanworks Commitlint config",
   "author": "Hanworks <khan97z.miao@gmail.com> (https://github.com/hanworks97/)",

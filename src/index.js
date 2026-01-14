@@ -1,7 +1,8 @@
 const Configuration = {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    'header-max-length': [2, 'always', 100],
+    'header-max-length': [0],
+    'body-max-line-length': [0],
     'type-empty': [2, 'never'],
     'type-case': [2, 'always', 'lower-case'],
     'type-enum': [

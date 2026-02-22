@@ -48,7 +48,7 @@ pnpm exec lint-staged
 4. 添加 commit-msg hook `.husky/commit-msg`
 
 ```bash
-pnpm exec commitlint --config commitlint.config.mjs --edit "${1}"
+pnpm exec commitlint --config commitlint.config.js --edit "${1}"
 ```
 
 5. 配置 lint-staged 在 `package.json` 中添加：

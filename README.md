@@ -1,13 +1,13 @@
 # @hanworks/commitlint-config
 
-这是我个人的 commitlint 配置预设。
+个人的 commitlint 配置预设。
 
 ## 安装
 
 在你的项目中安装 `@hanworks/commitlint-config` 包：
 
 ```bash
-pnpm add -D husky lint-staged czg @hanworks/commitlint-config
+pnpm add -D husky lint-staged czg cz-git @hanworks/commitlint-config
 ```
 
 在你的项目根目录下创建 commitlint.config.js：
@@ -32,7 +32,7 @@ pnpm husky install
 ```json
 {
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky"
   }
 }
 ```
@@ -42,13 +42,16 @@ pnpm husky install
 3. 添加 pre-commit hook `.husky/pre-commit`
 
 ```bash
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-npx lint-staged
+pnpm exec lint-staged
 ```
 
-4. 配置 lint-staged 在 `package.json` 中添加：
+4. 添加 commit-msg hook `.husky/commit-msg`
+
+```bash
+pnpm exec commitlint --config commitlint.config.mjs --edit "${1}"
+```
+
+5. 配置 lint-staged 在 `package.json` 中添加：
 
 ```json
 {
@@ -58,12 +61,17 @@ npx lint-staged
 }
 ```
 
-5. 将以下命令添加到你的脚本 package.json 部分：
+6. 将以下命令添加到你的脚本 package.json 部分：
 
 ```json
 {
   "scripts": {
-    "commit": "czg"
+    "cz": "czg"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
   }
 }
 ```

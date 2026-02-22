@@ -31,16 +31,22 @@
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">= 20"
+  },
   "scripts": {
     "build": "rollup -c",
     "postinstall": "npm run build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "commit": "czg",
-    "prepare": "husky install"
+    "cz": "czg",
+    "prepare": "husky"
   },
   "peerDependencies": {
-    "czg": ">=1.11.0"
+    "cz-git": ">=1.12.0",
+    "czg": ">=1.12.0",
+    "husky": ">=9.1.7",
+    "lint-staged": ">=16.2.7"
   },
   "dependencies": {
     "@commitlint/cli": "^19.7.1",
@@ -53,16 +59,21 @@
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
     "@rollup/plugin-terser": "^0.4.4",
+    "cz-git": "^1.12.0",
     "czg": "^1.12.0",
     "eslint": "^9.29.0",
     "eslint-plugin-format": "^1.0.2",
     "husky": "^9.1.7",
-    "lefthook": "^2.0.13",
     "lint-staged": "^16.2.7",
     "rollup": "^4.34.1",
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-delete": "^3.0.1",
     "rollup-plugin-typescript2": "^0.36.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-git"
+    }
   },
   "lint-staged": {
     "*": "eslint --fix"
